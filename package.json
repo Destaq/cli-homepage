@@ -7,13 +7,9 @@
     "url": "https://simonilincev.com",
     "email": "simon@simonilincev.com"
   },
-  "funding": {
-    "type": "Paypal",
-    "url": "https://paypal.me/y4ss1n3"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/m4tt72/terminal"
+    "url": "https://github.com/Destaq/cli-homepage"
   },
   "scripts": {
     "start": "next start",
@@ -22,8 +18,7 @@
     "next": "next",
     "preexport": "next build",
     "export": "next export",
-    "lint": "eslint .",
-    "prepare": "husky install"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@m4tt72/matomo-tracker-react": "^0.6.2",
@@ -46,7 +41,6 @@
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "tailwindcss": "^3.3.1",
