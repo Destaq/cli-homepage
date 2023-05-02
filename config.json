@@ -1,9 +1,8 @@
 {
-  "bioUrl": "https://raw.githubusercontent.com/m4tt72/m4tt72/master/README.md",
+  "bioUrl": "https://github.com/Destaq/Destaq/blob/master/README.md",
   "social": {
-    "instagram": "m4tt72",
-    "github": "m4tt72",
-    "linkedin": "yassinefathi"
+    "github": "Destaq",
+    "linkedin": "simon-ilincev"
   },
   "theme": "gruvboxdark",
   "border": true
