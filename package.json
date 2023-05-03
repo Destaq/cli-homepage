@@ -2,7 +2,6 @@
   "name": "terminal",
   "version": "2.14.4",
   "license": "MIT",
-  "homepage": "https://Destaq.github.io/cli-homepage",
   "author": {
     "name": "Simon Ilincev",
     "url": "https://simonilincev.com",
@@ -19,9 +18,7 @@
     "next": "next",
     "preexport": "next build",
     "export": "next export",
-    "lint": "eslint .",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@m4tt72/matomo-tracker-react": "^0.6.2",
@@ -44,7 +41,7 @@
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "gh-pages": "^5.0.0",
+    "gh-pages": "2.0.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "tailwindcss": "^3.3.1",
