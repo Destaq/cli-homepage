@@ -28,3 +28,11 @@ export const getQuote = async () => {
 		quote: `“${data.content}” — ${data.author}`,
 	};
 };
+
+export const searchGoogle = async (query: string) => {
+	const { data } = await axios.get(
+		`https://www.google.com/search?q=${query}`,
+	);
+
+	return data;
+};
