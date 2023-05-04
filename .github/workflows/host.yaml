@@ -31,3 +31,6 @@ jobs:
           # It specifies the temporary branch which hosts the static website.
           # Each build will OVERWRITE this branch.
           target-branch: gh-pages
+
+      - name: Create .nojekyll file in root directory of gh-pages branch
+        run: touch .nojekyll
