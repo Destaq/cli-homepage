@@ -32,5 +32,5 @@ jobs:
           # Each build will OVERWRITE this branch.
           target-branch: gh-pages
 
-      - name: Create .nojekyll file in root directory of gh-pages branch
-        run: touch .nojekyll
+      - name: Create .nojekyll file in root directory of gh-pages branch, then commit and push it
+        run: touch .nojekyll && git add .nojekyll && git commit -m "Create .nojekyll" && git push origin gh-pages
