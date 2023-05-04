@@ -14,7 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate your content
-        run: npm install && npm run preexport && npm run export
+        run: |
+          npm install
+          npm run preexport
+          npm run export
 
       - name: Publish current workdir (which contains generated content) to GitHub Pages
         uses: rayluo/github-pages-overwriter@v1.3
@@ -33,4 +36,10 @@ jobs:
           target-branch: gh-pages
 
       - name: Create .nojekyll file in root directory of gh-pages branch, then commit and push it
-        run: touch .nojekyll && git add .nojekyll && git commit -m "Create .nojekyll" && git push origin gh-pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          touch .nojekyll
+          git add .
+          git commit -m "Create .nojekyll file"
+          git push origin gh-pages
