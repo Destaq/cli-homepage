@@ -37,7 +37,6 @@ jobs:
 
       - name: Create .nojekyll file in root directory of gh-pages branch, then commit and push it
         run: |
-          git checkout --orphan gh-pages
           touch .nojekyll
           git add .
           git commit -m "Create .nojekyll file"
