@@ -38,8 +38,9 @@ jobs:
       - name: Create and commit .nojekyll file
         run: |
           git fetch origin gh-pages
-          git rebase origin gh-pages
+          git checkout gh-pages
+          git reset --hard origin/gh-pages
           touch .nojekyll
           git add .
           git commit -m "Create .nojekyll file"
-          git push --set-upstream origin gh-pages --force
+          git push --set-upstream origin gh-pages
