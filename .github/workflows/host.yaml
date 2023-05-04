@@ -41,6 +41,6 @@ jobs:
           git checkout gh-pages
           git reset --hard origin/gh-pages
           touch .nojekyll
-          git add .
+          git add .nojekyll
           git commit -m "Create .nojekyll file"
           git push --set-upstream origin gh-pages
