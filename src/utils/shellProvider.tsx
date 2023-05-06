@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { History } from "../interfaces/history";
 import * as bin from "./bin";
-import { useTheme } from "./themeProvider";
 
 interface ShellContextType {
 	history: History[];
+	dynamicHistory: History;
 	command: string;
 	lastCommandIndex: number;
-
 	setHistory: (output: string) => void;
 	setCommand: (command: string) => void;
+	setDynamicCommand: (command: string) => void;
+	setDynamicHistory: (output: string) => void;
 	setLastCommandIndex: (index: number) => void;
 	execute: (command: string) => Promise<void>;
+	executeDynamic: (command: string) => Promise<void>;
 	clearHistory: () => void;
+	clearDynamicHistory: () => void;
 }
 
 const ShellContext = React.createContext<ShellContextType>(null);
@@ -26,9 +29,10 @@ export const useShell = () => React.useContext(ShellContext);
 export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	const [init, setInit] = React.useState(true);
 	const [history, _setHistory] = React.useState<History[]>([]);
+	const [dynamicHistory, _setDynamicHistory] = React.useState<History>(null);
 	const [command, _setCommand] = React.useState<string>("");
+	const [dynamicCommand, _setDynamicCommand] = React.useState<string>("");
 	const [lastCommandIndex, _setLastCommandIndex] = React.useState<number>(0);
-	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		setCommand("banner");
@@ -39,6 +43,10 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 			execute();
 		}
 	}, [command, init]);
+
+	useEffect(() => {
+		executeDynamic();
+	}, [dynamicCommand]);
 
 	const setHistory = (output: string) => {
 		_setHistory([
@@ -52,6 +60,22 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 		]);
 	};
 
+	const setDynamicHistory = (output: string) => {
+		_setDynamicHistory({
+			id: 1,
+			date: new Date(),
+			command: dynamicCommand.split(" ").slice(1).join(" "),
+			output,
+		});
+	};
+
+	const setDynamicCommand = (command: string) => {
+		// Live updated commands go here.
+		if (command.split(" ")[0] === "search") {
+			_setDynamicCommand([Date.now(), command].join(" "));
+		}
+	};
+
 	const setCommand = (command: string) => {
 		_setCommand([Date.now(), command].join(" "));
 
@@ -62,8 +86,20 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 		_setHistory([]);
 	};
 
+	const clearDynamicHistory = () => {
+		_setDynamicHistory(null);
+	};
+
 	const setLastCommandIndex = (index: number) => {
 		_setLastCommandIndex(index);
+	};
+
+	const executeDynamic = async () => {
+		const [cmd, ...args] = dynamicCommand.split(" ").slice(1);
+		if (cmd === "search" && args.length > 0) {
+			const output = await bin[cmd](args);
+			setDynamicHistory(output);
+		}
 	};
 
 	const execute = async () => {
@@ -104,13 +140,18 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 		<ShellContext.Provider
 			value={{
 				history,
+				dynamicHistory,
 				command,
 				lastCommandIndex,
 				setHistory,
 				setCommand,
+				setDynamicCommand,
+				setDynamicHistory,
 				setLastCommandIndex,
 				execute,
+				executeDynamic,
 				clearHistory,
+				clearDynamicHistory,
 			}}
 		>
 			{children}

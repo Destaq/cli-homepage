@@ -28,6 +28,13 @@ npm build
 npm start
 ```
 
+4. (Optional) setup a proxy to enable Google search atucomplete:
+
+```bash
+npm i -g local-cors-proxy
+lcp --proxyUrl https://suggestqueries.google.com/
+```
+
 ## Configuration
 
 Here's a sample of the `config.json` file:

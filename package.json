@@ -28,7 +28,8 @@
     "next": "^13.3.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
