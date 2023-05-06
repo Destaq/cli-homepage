@@ -99,7 +99,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	const executeDynamic = async () => {
 		const [cmd, ...args] = dynamicCommand.split(" ").slice(1);
 		if (cmd === "search" && args.length > 0) {
-			const output = await bin[cmd](args);
+			const output = await bin["searchSuggestions"](args);
 			setDynamicHistory(output);
 		}
 	};

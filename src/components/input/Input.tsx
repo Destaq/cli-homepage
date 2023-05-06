@@ -9,6 +9,7 @@ import {
 import { useTheme } from "../../utils/themeProvider";
 import { Ps1 } from "../ps1";
 import { Live } from "../live";
+import { search } from "../../utils/bin";
 
 export const Input = ({ inputRef, containerRef }) => {
 	const { trackEvent } = useMatomo();
@@ -75,6 +76,21 @@ export const Input = ({ inputRef, containerRef }) => {
 			}
 		} else if (event.key === "Enter" || event.code === "13") {
 			event.preventDefault();
+
+			if (dynamicHistory !== null) {
+				if (value.split(" ")[0] === "search") {
+					if (currentSelection !== 0) {
+						let choices = dynamicHistory.output.split("\n");
+						let re = /(?<=<a.*>)[^<]*(?=<\/a>)/;
+
+						await search(
+							choices[currentSelection - 1]
+								.match(re)[0]
+								.split(" "),
+						);
+					}
+				}
+			}
 
 			setLastCommandIndex(0);
 

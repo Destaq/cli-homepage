@@ -57,11 +57,3 @@ export const getSearchSuggestions = async (query: string) => {
 		return [];
 	}
 };
-
-export const searchGoogle = async (query: string) => {
-	const { data } = await axios.get(
-		`https://www.google.com/search?q=${query}`,
-	);
-
-	return data;
-};

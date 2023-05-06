@@ -1,6 +1,6 @@
 import { getSearchSuggestions } from "../../api";
 
-export const search = async (args: string[]): Promise<string> => {
+export const searchSuggestions = async (args: string[]): Promise<string> => {
 	if (args.length === 0) {
 		return `Usage: search [query]`;
 	} else {
@@ -20,4 +20,15 @@ export const search = async (args: string[]): Promise<string> => {
 			)
 			.join("\n");
 	}
+};
+
+export const search = async (args: string[]): Promise<string> => {
+	setTimeout(function () {
+		window.open(
+			`https://www.google.com/search?q=${args.join(" ")}`,
+			"_blank",
+		);
+	}, 500);
+
+	return "Opening Google Search...";
 };
