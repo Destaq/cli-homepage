@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { History } from "../interfaces/history";
 import * as bin from "./bin";
+import { useTheme } from "./themeProvider";
 
 interface ShellContextType {
 	history: History[];
@@ -33,6 +34,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	const [command, _setCommand] = React.useState<string>("");
 	const [dynamicCommand, _setDynamicCommand] = React.useState<string>("");
 	const [lastCommandIndex, _setLastCommandIndex] = React.useState<number>(0);
+	const { setTheme } = useTheme();
 
 	useEffect(() => {
 		setCommand("banner");
