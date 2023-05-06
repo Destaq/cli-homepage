@@ -1,6 +1,6 @@
-# [M4TT72 | Terminal](https://term.m4tt72.com)
+# [Destaq | CLI Homepage](https://simonilincev.com/cli-homepage)
 
-A terminal style website
+A terminal-style startpage for all your browsing-related needs!
 
 ![screenshot](/docs/screenshot.png)
 
@@ -64,4 +64,4 @@ Feel free to open pull requests or log issues!
 
 ## Credits
 
-Adapted from [Yassine Fathi's React project](https://github.com/m4tt72/terminal).
+Adapted from [Yassine Fathi's project](https://github.com/m4tt72/terminal).
