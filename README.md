@@ -28,12 +28,18 @@ npm build
 npm start
 ```
 
-4. (Optional) setup a proxy to enable Google search atucomplete:
+4. (Optional) setup a proxy to enable Google search autocomplete:
 
 ```bash
 npm i -g local-cors-proxy
 lcp --proxyUrl https://suggestqueries.google.com/
 ```
+
+<p align="center">
+  <img width="372" alt="image" src="https://github.com/Destaq/cli-homepage/assets/61620873/96bd0247-4ccd-4492-8df0-6d3796946363">
+</p>
+
+You can then use tab to cycle through / select suggestions.
 
 ## Configuration
 
