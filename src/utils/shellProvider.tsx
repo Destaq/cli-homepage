@@ -30,6 +30,7 @@ export const useShell = () => React.useContext(ShellContext);
 export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	const [init, setInit] = React.useState(true);
 	const [history, _setHistory] = React.useState<History[]>([]);
+	// NOTE: dynamic history and commands are used to temporarily render details *below* the input.
 	const [dynamicHistory, _setDynamicHistory] = React.useState<History>(null);
 	const [command, _setCommand] = React.useState<string>("");
 	const [dynamicCommand, _setDynamicCommand] = React.useState<string>("");

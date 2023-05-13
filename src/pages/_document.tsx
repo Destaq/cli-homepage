@@ -1,4 +1,10 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
+import Document, {
+	DocumentContext,
+	Head,
+	Html,
+	Main,
+	NextScript,
+} from "next/document";
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
@@ -89,12 +95,15 @@ class MyDocument extends Document {
 						content="/ms-icon-144x144.png"
 					/>
 					<meta name="theme-color" content="#D79921" />
-					<meta name="description" content="M4TT72 | Yassine Fathi" />
+					<meta
+						name="description"
+						content="CLI Startpage | Simon Ilincev"
+					/>
 				</Head>
 
 				<body>
-				<Main />
-				<NextScript />
+					<Main />
+					<NextScript />
 				</body>
 			</Html>
 		);

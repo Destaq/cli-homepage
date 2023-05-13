@@ -22,7 +22,7 @@ Example:
 				", ",
 			);
 			result += "\n\n";
-			result += `You can preview all these themes <a href="https://github.com/m4tt72/terminal/tree/master/docs/themes">in the docs</a>`;
+			result += `You can preview all these themes <a href="https://github.com/Destaq/cli-homepage/tree/master/docs/themes">in the docs</a>`;
 
 			return result;
 		case "set":
